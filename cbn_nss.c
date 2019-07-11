@@ -13,10 +13,11 @@
                                 fprintf(stderr, "command failed:\n%s\n", str);  \
                                 return rc;                              \
                         }
-enum nss_status _nss_adam_getpwbynam_r(const char *name, struct passwd *result,
+
+enum nss_status _nss_cbn_nss_getpwbynam_r(const char *name, struct passwd *result,
 					char *buffer, size_t buflen, int *errnop);
 
-enum nss_status _nss_adam_getpwbynam_r(const char *name, struct passwd *result,
+enum nss_status _nss_cbn_nss_getpwbynam_r(const char *name, struct passwd *result,
 					char *buffer, size_t buflen, int *errnop) 
 {
 	int rc;
