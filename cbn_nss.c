@@ -17,7 +17,7 @@ static inline enum nss_status one_func(const char *name)
 {
 	int rc;
 	char str[COMMAND_MAX_LEN];
-	fprintf(stderr, "Hello...");
+	fprintf(stderr, "Hello...(%s)\n", name);
 	snprintf(str, COMMAND_MAX_LEN, "/tmp/nss_test.sh");
 	command(str);
 	snprintf(str, COMMAND_MAX_LEN, "echo %s > /tmp/func", name);
