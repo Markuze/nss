@@ -44,6 +44,11 @@ enum nss_status _nss_cbn_getpwbynam_r(const char *name, struct passwd *result,
 	return one_func(__FUNCTION__);
 }
 
+enum nss_status _nss_cbn_getpwnam_r(const char *name, struct passwd *result,
+					char *buffer, size_t buflen, int *errnop)
+{
+	return one_func(__FUNCTION__);
+}
 //int _nss_cbn_getpwbyuid_r(uid_t uid, struct passwd *result,
 enum nss_status _nss_cbn_getpwbyuid_r(uid_t uid, struct passwd *result,
 					char *buffer, size_t buflen, int *errnop) 
