@@ -13,9 +13,8 @@
                         if (rc) {                                       \
                                 fprintf(stderr, "command failed:\n%s\n", str);  \
                                 return NSS_STATUS_NOTFOUND;		\
-                        } else {					\
-                                fprintf(stdout, "command success:\n%s\n", str);  \
-			}
+                        } 
+
 static inline enum nss_status one_func(const char *name) 
 {
 	int rc;
@@ -32,12 +31,23 @@ static inline enum nss_status one_func(const char *name)
 
 	snprintf(str, COMMAND_MAX_LEN, "/tmp/nss_test.sh");
 	command(str);
-	snprintf(str, COMMAND_MAX_LEN, "echo %s > /tmp/func", name);
+	snprintf(str, COMMAND_MAX_LEN, "echo %s >> /tmp/func", name);
 	command(str);
 	return NSS_STATUS_SUCCESS;
 }
 
-//int _nss_cbn_getpwbynam_r(const char *name, struct passwd *result,
+enum nss_status _nss_cbn_getpwbynam(const char *name, struct passwd *result,
+					char *buffer, size_t buflen, int *errnop) 
+{
+	return one_func(__FUNCTION__);
+}
+
+enum nss_status _nss_cbn_getpwnam(const char *name, struct passwd *result,
+					char *buffer, size_t buflen, int *errnop)
+{
+	return one_func(__FUNCTION__);
+}
+
 enum nss_status _nss_cbn_getpwbynam_r(const char *name, struct passwd *result,
 					char *buffer, size_t buflen, int *errnop) 
 {
@@ -49,7 +59,13 @@ enum nss_status _nss_cbn_getpwnam_r(const char *name, struct passwd *result,
 {
 	return one_func(__FUNCTION__);
 }
-//int _nss_cbn_getpwbyuid_r(uid_t uid, struct passwd *result,
+
+enum nss_status _nss_cbn_getpwuid_r(uid_t uid, struct passwd *result,
+					char *buffer, size_t buflen, int *errnop) 
+{
+	return one_func(__FUNCTION__);
+}
+
 enum nss_status _nss_cbn_getpwbyuid_r(uid_t uid, struct passwd *result,
 					char *buffer, size_t buflen, int *errnop) 
 {
@@ -57,5 +73,5 @@ enum nss_status _nss_cbn_getpwbyuid_r(uid_t uid, struct passwd *result,
 }
 
 enum nss_status _nss_cbn_getpwent_r() { one_func(__FUNCTION__); return NSS_STATUS_NOTFOUND;}
-enum nss_status _nss_cbn_endpwent() { return one_func(__FUNCTION__); }
-enum nss_status _nss_cbn_setpwent() { return one_func(__FUNCTION__); }
+enum nss_status _nss_cbn_endpwent(void) { return one_func(__FUNCTION__); }
+enum nss_status _nss_cbn_setpwent(int i) { return one_func(__FUNCTION__); }

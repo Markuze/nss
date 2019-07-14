@@ -5,3 +5,10 @@ Add cbn to /etc/nsswitch.conf:
 passwd:         compat => passwd:         cbn compat
 
 #possible issue: https://stackoverflow.com/questions/16366571/adding-a-service-to-name-service-switch
+
+#Glibc code:
+#https://git.launchpad.net/glibc/
+#https://git.launchpad.net/glibc/tree/include/pwd.h?id=glibc-2.27
+
+#ldd --version
+#ldd (Ubuntu GLIBC 2.27-3ubuntu1) 2.27
