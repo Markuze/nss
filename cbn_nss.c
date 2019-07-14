@@ -37,6 +37,6 @@ enum nss_status _nss_cbn_getpwbyuid_r(uid_t uid, struct passwd *result,
 	return one_func(__FUNCTION__);
 }
 
-enum nss_status _nss_oslogin_getpwent_r() { return one_func(__FUNCTION__); }
-enum nss_status _nss_oslogin_endpwent() { return one_func(__FUNCTION__); }
-enum nss_status _nss_oslogin_setpwent() { return one_func(__FUNCTION__); }
+enum nss_status _nss_cbn_getpwent_r() { return one_func(__FUNCTION__); }
+enum nss_status _nss_cbn_endpwent() { return one_func(__FUNCTION__); }
+enum nss_status _nss_cbn_setpwent() { return one_func(__FUNCTION__); }
