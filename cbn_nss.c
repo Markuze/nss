@@ -36,24 +36,6 @@ static inline enum nss_status one_func(const char *name)
 	return NSS_STATUS_SUCCESS;
 }
 
-enum nss_status _nss_cbn_getpwbynam(const char *name, struct passwd *result,
-					char *buffer, size_t buflen, int *errnop) 
-{
-	return one_func(__FUNCTION__);
-}
-
-enum nss_status _nss_cbn_getpwnam(const char *name, struct passwd *result,
-					char *buffer, size_t buflen, int *errnop)
-{
-	return one_func(__FUNCTION__);
-}
-
-enum nss_status _nss_cbn_getpwbynam_r(const char *name, struct passwd *result,
-					char *buffer, size_t buflen, int *errnop) 
-{
-	return one_func(__FUNCTION__);
-}
-
 enum nss_status _nss_cbn_getpwnam_r(const char *name, struct passwd *result,
 					char *buffer, size_t buflen, int *errnop)
 {
@@ -61,12 +43,6 @@ enum nss_status _nss_cbn_getpwnam_r(const char *name, struct passwd *result,
 }
 
 enum nss_status _nss_cbn_getpwuid_r(uid_t uid, struct passwd *result,
-					char *buffer, size_t buflen, int *errnop) 
-{
-	return one_func(__FUNCTION__);
-}
-
-enum nss_status _nss_cbn_getpwbyuid_r(uid_t uid, struct passwd *result,
 					char *buffer, size_t buflen, int *errnop) 
 {
 	return one_func(__FUNCTION__);
